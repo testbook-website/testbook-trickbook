@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrickBook Widget</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f3ee;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 12px;
+    min-height: 100vh;
+  }
+
+  .widget {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  /* Top badge */
+  .top-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .pill {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+  .pill-outline {
+    border: 1.5px solid #1a1a2e;
+    color: #1a1a2e;
+    background: transparent;
+  }
+  .pill-filled {
+    background: #1a1a2e;
+    color: #fff;
+  }
+
+  /* Hero card */
+  .hero-card {
+    background: #1a1a2e;
+    border-radius: 16px;
+    padding: 22px 20px 20px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.08);
+  }
+  .trick-category {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin-bottom: 10px;
+  }
+  .trick-category svg {
+    width: 15px; height: 15px;
+    fill: none;
+    stroke: #d4af37;
+    stroke-width: 1.8;
+  }
+  .trick-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .trick-tagline {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+  }
+
+  /* Notice card */
+  .notice-card {
+    background: #e8f7f1;
+    border: 1.5px solid #5dcaa5;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .notice-icon {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #0f6e56;
+  }
+  .notice-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0f6e56;
+    margin-bottom: 5px;
+  }
+  .notice-text {
+    font-size: 14px;
+    color: #085041;
+    line-height: 1.55;
+  }
+
+  /* Trick preview (hidden until teased) */
+  .trick-preview {
+    background: #fff;
+    border: 1px solid #e0ddd6;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+    display: none;
+  }
+  .trick-preview.visible { display: block; }
+  .trick-preview h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #888780;
+    margin-bottom: 8px;
+  }
+  .trick-steps {
+    list-style: none;
+    counter-reset: step;
+  }
+  .trick-steps li {
+    counter-increment: step;
+    font-size: 14px;
+    color: #2c2c2a;
+    line-height: 1.6;
+    padding: 6px 0 6px 32px;
+    position: relative;
+    border-bottom: 0.5px solid #f1efe8;
+  }
+  .trick-steps li:last-child { border-bottom: none; }
+  .trick-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 22px; height: 22px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .blur-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, #fff);
+    border-radius: 0 0 12px 12px;
+    pointer-events: none;
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.18s, transform 0.12s;
+    margin-bottom: 10px;
+  }
+  .cta-btn:hover { background: #2c2c4a; }
+  .cta-btn:active { transform: scale(0.98); }
+  .cta-btn svg {
+    width: 18px; height: 18px;
+    stroke: #d4af37;
+    fill: none;
+    stroke-width: 2;
+    flex-shrink: 0;
+  }
+  .cta-btn .chevron {
+    margin-left: auto;
+    transition: transform 0.2s;
+  }
+  .cta-btn.open .chevron { transform: rotate(180deg); }
+
+  /* Powered by */
+  .powered-by {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 11px;
+    color: #888780;
+  }
+  .powered-by a {
+    color: #1a1a2e;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  @media (max-width: 380px) {
+    .trick-title { font-size: 19px; }
+    .cta-btn { font-size: 13px; padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="widget">
+
+  <!-- Top pills -->
+  <div class="top-badge">
+    <span class="pill pill-outline">Quant</span>
+    <span class="pill pill-filled">Trick</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-card">
+    <div class="trick-category">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>
+      </svg>
+      Percentage Shortcut
+    </div>
+    <div class="trick-title">The Percentage Without Total Trick</div>
+    <div class="trick-tagline">When one value is already tied to a percentage, map the next value directly.</div>
+  </div>
+
+  <!-- Notice -->
+  <div class="notice-card">
+    <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <div>
+      <div class="notice-label">Notice</div>
+      <div class="notice-text">If a question gives one amount as a known percent of the total, you can use that amount as the bridge.</div>
+    </div>
+  </div>
+
+  <!-- Trick steps preview (shown after tease click) -->
+  <div class="trick-preview" id="trickPreview">
+    <h4>Quick Preview</h4>
+    <ul class="trick-steps">
+      <li>Identify the value already linked to a known percent.</li>
+      <li>Use that as your bridge — no need to find the total.</li>
+      <li>Set up a direct ratio and solve.</li>
+    </ul>
+    <div class="blur-overlay"></div>
+  </div>
+
+  <!-- CTA -->
+  <a class="cta-btn" id="revealBtn" href="https://testbook-trickbook.duckdns.org/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    Reveal Trick
+    <svg class="chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </a>
+
+  <div class="powered-by">
+    More tricks at <a href="https://testbook-trickbook.duckdns.org/" target="_blank" rel="noopener">TrickBook by Testbook</a>
+  </div>
+
+</div>
+
+<script></script>
+
+</body>
+</html>
