@@ -1,248 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TrickBook Widget</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:#f5f5f5;
-    padding:20px;
-}
-
-.tb-widget{
-
-    max-width:900px;
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-
-    background:#fff;
-
-    border:1px solid #E6E6E6;
-
-    border-left:5px solid #22C55E;
-
-    border-radius:12px;
-
-    padding:18px 22px;
-
-}
-
-.tb-content{
-
-    flex:1;
-
-}
-
-.tb-badge{
-
-    display:inline-block;
-
-    background:#E8F8EF;
-
-    color:#16A34A;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    letter-spacing:.08em;
-
-    text-transform:uppercase;
-
-    padding:4px 10px;
-
-    border-radius:20px;
-
-    margin-bottom:10px;
-
-}
-
-.tb-title{
-
-    font-size:24px;
-
-    font-weight:700;
-
-    color:#222;
-
-    margin-bottom:8px;
-
-}
-
-.tb-subtitle{
-
-    font-size:16px;
-
-    color:#555;
-
-    line-height:1.5;
-
-    margin-bottom:14px;
-
-}
-
-.tb-features{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:18px;
-
-    font-size:14px;
-
-    color:#444;
-
-}
-
-.tb-feature{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:6px;
-
-}
-
-.tb-feature span{
-
-    color:#22C55E;
-
-    font-weight:700;
-
-}
-
-.tb-btn{
-
-    flex-shrink:0;
-
-    background:#22C55E;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    padding:14px 24px;
-
-    border-radius:10px;
-
-    transition:.2s;
-
-    white-space:nowrap;
-
-}
-
-.tb-btn:hover{
-
-    background:#16A34A;
-
-}
-
-@media(max-width:768px){
-
-.tb-widget{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    padding:18px;
-
-}
-
-.tb-title{
-
-    font-size:20px;
-
-}
-
-.tb-subtitle{
-
-    font-size:15px;
-
-}
-
-.tb-features{
-
-    gap:12px;
-
-    font-size:13px;
-
-}
-
-.tb-btn{
-
-    width:100%;
-
-    text-align:center;
-
-    margin-top:8px;
-
-}
-
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="tb-widget">
-
-    <div class="tb-content">
-
-        <div class="tb-badge">
-            TrickBook Recommendation
-        </div>
-
-        <div class="tb-title">
-            Master the Percentage Shortcut Used By Toppers!
-        </div>
-
-        <div class="tb-subtitle">
-            Learn faster methods that save valuable time in SSC, Banking, Railway and other competitive exams.
-        </div>
-
-        <div class="tb-features">
-
-            <div class="tb-feature">
-                <span>✔</span> Unlimited Tricks
-            </div>
-
-            <div class="tb-feature">
-                <span>✔</span> Save Time
-            </div>
-
-            <div class="tb-feature">
-                <span>✔</span> Share Tricks
-            </div>
-
-        </div>
-
+<div class="tb-trick-widget">
+  <div class="tb-trick-content">
+    <div class="tb-trick-badge">TrickBook Recommendation</div>
+
+    <div class="tb-trick-title">
+      Master the Percentage Shortcut Used By Toppers!
     </div>
 
-    <a href="https://testbook-website.github.io/testbook-trickbook/" target="_blank" class="tb-btn">
-        Explore TrickBook →
-    </a>
+    <div class="tb-trick-desc">
+      Learn faster methods that save time in SSC, Banking, Railway and other exams.
+    </div>
 
+    <div class="tb-trick-usps">
+      <span>✓ Unlimited Tricks</span>
+      <span>✓ Save Time</span>
+      <span>✓ Share Tricks</span>
+    </div>
+
+    <a href="https://testbook-website.github.io/testbook-trickbook/" target="_blank" class="tb-trick-btn">
+      Explore TrickBook →
+    </a>
+  </div>
 </div>
 
-</body>
-</html>
+<style>
+.tb-trick-widget {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #22c55e;
+  border-radius: 10px;
+  padding: 14px;
+  margin: 18px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.tb-trick-content {
+  width: 100%;
+}
+
+.tb-trick-badge {
+  display: inline-block;
+  background: #e8f8ef;
+  color: #16a34a;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.tb-trick-title {
+  font-size: 18px;
+  line-height: 1.28;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.tb-trick-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+
+.tb-trick-usps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  font-size: 12px;
+  color: #15803d;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tb-trick-btn {
+  display: block;
+  width: 100%;
+  background: #22c55e;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 11px 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .tb-trick-widget {
+    padding: 16px 20px;
+  }
+
+  .tb-trick-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 20px;
+    align-items: center;
+  }
+
+  .tb-trick-badge,
+  .tb-trick-title,
+  .tb-trick-desc,
+  .tb-trick-usps {
+    grid-column: 1;
+  }
+
+  .tb-trick-btn {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    width: auto;
+    white-space: nowrap;
+    padding: 12px 18px;
+  }
+}
+</style>
