@@ -1,121 +1,148 @@
-<div class="tb-trick-widget">
-  <div class="tb-trick-content">
-    <div class="tb-trick-badge">TrickBook Recommendation</div>
-
-    <div class="tb-trick-title">
-      Master the Percentage Shortcut Used By Toppers!
-    </div>
-
-    <div class="tb-trick-desc">
-      Learn faster methods that save time in SSC, Banking, Railway and other exams.
-    </div>
-
-    <div class="tb-trick-usps">
-      <span>✓ Unlimited Tricks</span>
-      <span>✓ Save Time</span>
-      <span>✓ Share Tricks</span>
-    </div>
-
-    <a href="https://testbook-website.github.io/testbook-trickbook/" target="_blank" class="tb-trick-btn">
-      Explore TrickBook →
-    </a>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrickBook Widget</title>
 
 <style>
-.tb-trick-widget {
-  width: 100%;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-left: 4px solid #22c55e;
-  border-radius: 10px;
-  padding: 14px;
-  margin: 18px 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.tb-trick-content {
-  width: 100%;
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#f5f5f5;
+    padding:20px;
 }
 
-.tb-trick-badge {
-  display: inline-block;
-  background: #e8f8ef;
-  color: #16a34a;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 20px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
+.tb-widget{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-left:4px solid #22c55e;
+    border-radius:10px;
+    padding:14px 16px;
 }
 
-.tb-trick-title {
-  font-size: 18px;
-  line-height: 1.28;
-  font-weight: 800;
-  color: #111827;
-  margin-bottom: 8px;
+.tb-badge{
+    display:inline-block;
+    background:#ecfdf5;
+    color:#16a34a;
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    padding:4px 8px;
+    border-radius:20px;
+    margin-bottom:8px;
 }
 
-.tb-trick-desc {
-  font-size: 13px;
-  line-height: 1.45;
-  color: #4b5563;
-  margin-bottom: 10px;
+.tb-title{
+    font-size:22px;
+    font-weight:700;
+    line-height:1.25;
+    color:#222;
+    margin-bottom:12px;
 }
 
-.tb-trick-usps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  font-size: 12px;
-  color: #15803d;
-  font-weight: 600;
-  margin-bottom: 12px;
+.tb-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
 }
 
-.tb-trick-btn {
-  display: block;
-  width: 100%;
-  background: #22c55e;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 800;
-  padding: 11px 12px;
-  border-radius: 8px;
-  box-sizing: border-box;
+.tb-features{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 16px;
+    font-size:13px;
+    color:#444;
 }
 
-@media (min-width: 768px) {
-  .tb-trick-widget {
-    padding: 16px 20px;
-  }
+.tb-features span{
+    color:#16a34a;
+    font-weight:600;
+}
 
-  .tb-trick-content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    column-gap: 20px;
-    align-items: center;
-  }
+.tb-btn{
+    background:#22c55e;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    padding:11px 18px;
+    border-radius:8px;
+    white-space:nowrap;
+    transition:.2s;
+}
 
-  .tb-trick-badge,
-  .tb-trick-title,
-  .tb-trick-desc,
-  .tb-trick-usps {
-    grid-column: 1;
-  }
+.tb-btn:hover{
+    background:#16a34a;
+}
 
-  .tb-trick-btn {
-    grid-column: 2;
-    grid-row: 1 / span 4;
-    width: auto;
-    white-space: nowrap;
-    padding: 12px 18px;
-  }
+@media(max-width:640px){
+
+.tb-widget{
+    padding:14px;
+}
+
+.tb-title{
+    font-size:18px;
+}
+
+.tb-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.tb-features{
+    font-size:12px;
+    gap:8px 12px;
+}
+
+.tb-btn{
+    width:100%;
+    text-align:center;
+    margin-top:6px;
+}
+
 }
 </style>
+</head>
+
+<body>
+
+<div class="tb-widget">
+
+    <div class="tb-badge">
+        TrickBook Recommendation
+    </div>
+
+    <div class="tb-title">
+        Master the Percentage Shortcut Used By Toppers!
+    </div>
+
+    <div class="tb-bottom">
+
+        <div class="tb-features">
+            <span>✓ Unlimited Tricks</span>
+            <span>✓ Save Time</span>
+            <span>✓ Share Tricks</span>
+        </div>
+
+        <a href="https://testbook-website.github.io/testbook-trickbook/" target="_blank" class="tb-btn">
+            Explore →
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
