@@ -1,79 +1,248 @@
-<div class="tb-quant-challenge">
-  <div class="tb-quant-content">
-    <div class="tb-quant-heading">🧠 Can You Solve This in Under 10 Seconds?</div>
-    <div class="tb-quant-question">
-      Find <strong>18% of 350</strong><br>
-      without multiplying.
-    </div>
-  </div>
-
-  <a class="tb-quant-btn" href="https://testbook-trickbook.duckdns.org/" target="_blank" rel="noopener">
-    Reveal Shortcut →
-  </a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrickBook Widget</title>
 
 <style>
-.tb-quant-challenge {
-  width: 100%;
-  max-width: 760px;
-  margin: 16px auto;
-  padding: 16px 18px;
-  border-radius: 14px;
-  background: #fff8e8;
-  border: 1px solid #f1d28a;
-  border-left: 5px solid #f4b400;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.tb-quant-heading {
-  font-size: 16px;
-  font-weight: 800;
-  color: #222;
-  line-height: 1.3;
-  margin-bottom: 6px;
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#f5f5f5;
+    padding:20px;
 }
 
-.tb-quant-question {
-  font-size: 14px;
-  color: #444;
-  line-height: 1.45;
+.tb-widget{
+
+    max-width:900px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    background:#fff;
+
+    border:1px solid #E6E6E6;
+
+    border-left:5px solid #22C55E;
+
+    border-radius:12px;
+
+    padding:18px 22px;
+
 }
 
-.tb-quant-btn {
-  flex-shrink: 0;
-  background: #22c55e;
-  color: #fff;
-  text-decoration: none;
-  padding: 11px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 800;
-  white-space: nowrap;
+.tb-content{
+
+    flex:1;
+
 }
 
-@media (max-width: 520px) {
-  .tb-quant-challenge {
-    padding: 14px;
-    align-items: flex-start;
-    flex-direction: column;
-  }
+.tb-badge{
 
-  .tb-quant-heading {
-    font-size: 15px;
-  }
+    display:inline-block;
 
-  .tb-quant-question {
-    font-size: 13px;
-  }
+    background:#E8F8EF;
 
-  .tb-quant-btn {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-  }
+    color:#16A34A;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    padding:4px 10px;
+
+    border-radius:20px;
+
+    margin-bottom:10px;
+
+}
+
+.tb-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin-bottom:8px;
+
+}
+
+.tb-subtitle{
+
+    font-size:16px;
+
+    color:#555;
+
+    line-height:1.5;
+
+    margin-bottom:14px;
+
+}
+
+.tb-features{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    font-size:14px;
+
+    color:#444;
+
+}
+
+.tb-feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+.tb-feature span{
+
+    color:#22C55E;
+
+    font-weight:700;
+
+}
+
+.tb-btn{
+
+    flex-shrink:0;
+
+    background:#22C55E;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    padding:14px 24px;
+
+    border-radius:10px;
+
+    transition:.2s;
+
+    white-space:nowrap;
+
+}
+
+.tb-btn:hover{
+
+    background:#16A34A;
+
+}
+
+@media(max-width:768px){
+
+.tb-widget{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    padding:18px;
+
+}
+
+.tb-title{
+
+    font-size:20px;
+
+}
+
+.tb-subtitle{
+
+    font-size:15px;
+
+}
+
+.tb-features{
+
+    gap:12px;
+
+    font-size:13px;
+
+}
+
+.tb-btn{
+
+    width:100%;
+
+    text-align:center;
+
+    margin-top:8px;
+
+}
+
 }
 </style>
+
+</head>
+
+<body>
+
+<div class="tb-widget">
+
+    <div class="tb-content">
+
+        <div class="tb-badge">
+            TrickBook Recommendation
+        </div>
+
+        <div class="tb-title">
+            Master the Percentage Shortcut Used By Toppers!
+        </div>
+
+        <div class="tb-subtitle">
+            Learn faster methods that save valuable time in SSC, Banking, Railway and other competitive exams.
+        </div>
+
+        <div class="tb-features">
+
+            <div class="tb-feature">
+                <span>✔</span> Unlimited Tricks
+            </div>
+
+            <div class="tb-feature">
+                <span>✔</span> Save Time
+            </div>
+
+            <div class="tb-feature">
+                <span>✔</span> Share Tricks
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="https://testbook-website.github.io/testbook-trickbook/" target="_blank" class="tb-btn">
+        Explore TrickBook →
+    </a>
+
+</div>
+
+</body>
+</html>
